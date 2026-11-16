@@ -10,6 +10,7 @@ Claude Code skills I use day to day. Each folder under `skills/` is one skill.
 | [`go-crazy`](skills/go-crazy/SKILL.md) | Work one person's tasks on a build board with parallel subagents, rechecking on a timer. |
 | [`iso-plain-language`](skills/iso-plain-language/SKILL.md) | Write human-facing text in plain language that follows ISO 24495-1:2023. |
 | [`project-update`](skills/project-update/SKILL.md) | Post a short status paragraph about a project on a repeating timer. |
+| [`update-skills-repo`](skills/update-skills-repo/SKILL.md) | Publish your own skills to a public GitHub skills repo, with proprietary information removed and this README kept current. |
 
 ## Install
 
@@ -37,3 +38,5 @@ Run `git pull` in the clone to update.
 - **`explainer-video` setup.** Needs Node and Chrome. Run `bash ~/.claude/skills/explainer-video/scripts/setup.sh` once.
 - **Build boards.** Each person whose agent writes to a board needs Contributor or Editor access to that board's artifact.
 - **`go-crazy` and `project-update`** run only when you type `/go-crazy` or `/project-update`. Claude won't start them on its own.
+- **`iso-plain-language` is used by other skills.** `explain-with-slides`, `explainer-video`, `project-update` and `update-skills-repo` load it, so install it with them.
+- **`update-skills-repo` publishes to your own account.** It needs the `gh` CLI signed in and Python 3. It keeps its clone at `~/dev/skills` and pushes to `github.com/<your account>/skills`, creating that public repo on the first run. It never publishes skills you installed from other people's repos.
