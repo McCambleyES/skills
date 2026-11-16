@@ -11,6 +11,7 @@ Claude Code skills I use day to day. Each folder under `skills/` is one skill.
 | [`iso-plain-language`](skills/iso-plain-language/SKILL.md) | Write human-facing text in plain language that follows ISO 24495-1:2023. |
 | [`project-update`](skills/project-update/SKILL.md) | Post a short status paragraph about a project on a repeating timer. |
 | [`update-skills-repo`](skills/update-skills-repo/SKILL.md) | Publish your own skills to a public GitHub skills repo, with proprietary information removed and this README kept current. |
+| [`vector`](skills/vector/SKILL.md) | Vector (also called Linearesque), a quiet dark-first design system with lit gradient borders, faint glows and two-tone icons. |
 
 ## Install
 
@@ -34,7 +35,7 @@ Run `git pull` in the clone to update.
 ## Before you use them
 
 - **claude.ai account.** `build-board`, `go-crazy`, `project-update` and `explain-with-slides` create or read claude.ai artifacts, so Claude Code must be signed in with a claude.ai account that has artifacts enabled.
-- **Shared design artifacts.** `explain-with-slides` builds on two claude.ai artifacts: a Slides type and the Vector design system. Ask me for access if a publish is refused. `build-board` and `explainer-video` carry their own copy of Vector and don't need access.
+- **`vector` is the design system behind three skills.** `build-board`, `explain-with-slides` and `explainer-video` carry their own copies of its tokens, so they work without it. Install it to style other work in Vector, or to change Vector: its `SKILL.md` says how to pass a change on to the other three.
 - **`explainer-video` setup.** Needs Node and Chrome. Run `bash ~/.claude/skills/explainer-video/scripts/setup.sh` once.
 - **Build boards.** Each person whose agent writes to a board needs Contributor or Editor access to that board's artifact.
 - **`go-crazy` and `project-update`** run only when you type `/go-crazy` or `/project-update`. Claude won't start them on its own.

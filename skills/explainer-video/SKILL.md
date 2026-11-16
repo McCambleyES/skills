@@ -179,4 +179,4 @@ Tell the user:
 | `references/scene-patterns.md` | Which pattern fits which kind of content, and how to tell a story without voice |
 | `references/runtime.md` | The animation attributes, the timing model and the CSS classes |
 
-The design tokens come from the Vector design system (claude.ai artifact `TEWtueJ78KnXj7TMcJu9rp`), using its dark theme. If the user wants a different design system, copy its colour, type and radius tokens into the `:root` block of the project's `runtime/vector-video.css`, and keep the video sizes.
+The design tokens come from the `vector` skill's dark theme, scaled for video. When Vector changes, copy the changed colour values into the `:root` block of `assets/runtime/vector-video.css`. If the user wants a different design system, copy its colour, type and radius tokens into the `:root` block of the project's `runtime/vector-video.css`, and keep the video sizes.

@@ -13,7 +13,7 @@ A build board is a claude.ai artifact page that a team's Claude agents use as th
 
 Read `references/decompose.md` before drafting tasks, and `references/schema.md` before writing any data files.
 
-The page is styled with the **Vector** design system. A local copy lives in `assets/design-system/` (see "Design system" below), so every board looks the same without fetching anything.
+The page is styled with the **Vector** design system, from the `vector` skill. Its tokens and icons are baked into the template (see "Design system" below), so every board looks the same without fetching anything.
 
 ## Before you start
 
@@ -130,15 +130,15 @@ Once seeded, **the database is the source of truth**. Local task files go stale 
 
 ## Design system
 
-Boards use Vector: https://claude.ai/artifact/TEWtueJ78KnXj7TMcJu9rp. `assets/design-system/` holds a copy of its brand book (`README.md`), `tokens.json`, component guidelines and styles, and icons. `SOURCE.md` there records which version was copied, and why it's a copy rather than a live link.
+Boards use Vector. The `vector` skill (`~/.claude/skills/vector/`) holds its brand book, tokens, component guidelines and icons.
 
 How the template uses it:
 
-- **Tokens.** `assets/board.html` contains two generated blocks: `/* @tokens:start */` (every Vector token as a CSS variable, light on `:root`, dark under `prefers-color-scheme` and `[data-theme]`) and `/* @icons:start */` (`.ico-<name>` classes). `scripts/sync_design_system.py` writes both; don't edit them by hand.
+- **Tokens.** `assets/board.html` contains two generated blocks: `/* @tokens:start */` (Vector's `tokens.css`: every token as a CSS variable, light on `:root`, dark under `prefers-color-scheme` and `[data-theme]`) and `/* @icons:start */` (`.ico-<name>` classes). `scripts/sync_design_system.py` copies both in from the `vector` skill; don't edit them by hand. The template carries its own copy because an artifact page can't load files at runtime, and so a board built today looks the same next month.
 - **Components.** The rest of the CSS maps the board onto Vector components. Panels and cards use the Card's lit gradient border, the header is the page's one glow section, statuses are Badges (colour only in the dot), and toggles and actions are Buttons. Section headings carry a bare 20px icon.
 - **Status colours** use Vector's badge tones: waiting grey, ready blue, in progress amber, in review violet, blocked red, done green. They are defined once as `--st-*` at the top of the hand-written CSS.
 
-If you change the board's styling, follow `assets/design-system/README.md`:
+If you change the board's styling, follow the `vector` skill's `README.md`:
 
 - Use tokens only, never new raw colours.
 - Colour goes in icons, dots and the single accent, never in text or surfaces.
@@ -147,7 +147,7 @@ If you change the board's styling, follow `assets/design-system/README.md`:
 
 Write board copy in Vector's voice too: sentence case, short declarative titles, verbs on buttons, and no exclamation marks or emoji.
 
-When Vector changes, follow the re-sync steps in `assets/design-system/SOURCE.md`.
+When Vector changes, run `python3 ~/.claude/skills/build-board/scripts/sync_design_system.py`. If it reports tokens the template uses that no longer exist, update the hand-written CSS in `assets/board.html` and run it again. Then preview a board in both themes (`scripts/preview_board.py --theme light|dark --screenshot`) and republish any live boards that should pick up the change (see "Changing a live board").
 
 ## Why the protocol looks the way it does
 

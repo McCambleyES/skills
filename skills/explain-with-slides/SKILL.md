@@ -20,7 +20,7 @@ Two things matter equally:
 | What | Value |
 |---|---|
 | Slides type | `https://claude.ai/artifact/8jTsAFQMFDb2oA8MsPJ2eL` |
-| Design system | Linearesque (README calls it Vector), `https://claude.ai/artifact/TEWtueJ78KnXj7TMcJu9rp`, folder `vector`, dark theme |
+| Design system | Vector (also called Linearesque), from the `vector` skill, dark theme. `assets/deck.css` carries its colour tokens at slide scale. |
 | Stylesheet | `SKILL_DIR/assets/deck.css`, copied verbatim to `project/deck.css` |
 | Slide markup | `SKILL_DIR/references/slide-patterns.md` |
 | Fonts | Inter (400, 500, 600) and JetBrains Mono (400, 500) from Google Fonts |
@@ -76,7 +76,7 @@ Load the `iso-plain-language` skill (the user's own copy, not `anthropic-skills:
 
 Create the deck: an Artifact publish with `type_url` set to the Slides type, a `title` and no files. If that is refused, run `quickstart` with `intent: "slides"` and use the Slides type it names. Then follow the type's instructions in the reply for file formats and publish calls. This skill decides only what goes in the files:
 
-- **Design system:** use Linearesque. Install it as the type's Creating step 3 says: a `designSystems` record in `deck.json` with title `Linearesque`, namespace `vector`, the URL above and `copiedAt` set to now, and a `files` entry copying its `project/tokens.json` to `project/ds/vector/tokens.json`.
+- **Design system:** Vector, through `deck.css`, which declares every token the slides use. This choice stands in for the type's design-system question: leave `designSystems` empty and install nothing. The deck looks the same either way; the editor's colour and text-style menus show plain hex values instead of token names.
 - **`deck.json`:** the `sections` from your outline, `cover`, and `faces` for Inter and JetBrains Mono.
 - **`deck.css`:** copy `SKILL_DIR/assets/deck.css` verbatim. If a slide needs a layout it lacks, add a class at the end of the file and keep the tokens.
 - **Slides:** build each from its pattern in `slide-patterns.md`. Stagger entrances with `class="in"` and `style="--i:N"`.

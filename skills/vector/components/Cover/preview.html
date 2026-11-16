@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vector</title><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--bg-base); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; -webkit-font-smoothing:antialiased; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .accent { fill:var(--accent); }
+  .blue { fill:var(--icon-blue); }
+  .green { fill:var(--icon-green); }
+  .orange { fill:var(--icon-orange); }
+  .pink { fill:var(--icon-pink); }
+  .dot { fill:var(--text-tertiary); }
+  .slab { rx:var(--radius-xl); }
+  .tile { rx:var(--radius-lg); }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-8); max-width:440px; }
+  .name { margin:0; font-size:120px; line-height:.92; font-weight:600; letter-spacing:-0.045em; color:var(--text-primary); }
+  .tag { margin:var(--space-3) 0 0 6px; font-size:14px; line-height:20px; color:var(--text-tertiary); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      accent 160×240 slab bled off the top (the one colour the UI spends on actions) · icon-blue 112×48 two-wide tile · icon-green, icon-orange, icon-pink 48×48 tiles — the icon hues that carry the system's colour, ≈26% of 960×288
+  arrangement one tall accent slab with a small modular cluster of icon tiles to its right, bottoms on one line space-8 above the edge, space-4 gutters
+  pattern     dot grid, from "a 4px grid" and "precise": 33 dots at a space-6 pitch in text-tertiary above the tile cluster
+  scales      sides in space-4 multiples; gutters space-4; pitch space-6; slab corners radius-xl, tiles radius-lg
+-->
+<rect class="accent slab" x="0" y="-16" width="160" height="272" rx="16"/>
+<rect class="pink tile" x="240" y="128" width="48" height="48" rx="12"/>
+<rect class="green tile" x="176" y="192" width="48" height="48" rx="12"/>
+<rect class="orange tile" x="240" y="192" width="48" height="48" rx="12"/>
+<rect class="blue tile" x="304" y="192" width="112" height="48" rx="12"/>
+<g class="dot">
+<circle cx="184" cy="32" r="1.5"/><circle cx="208" cy="32" r="1.5"/><circle cx="232" cy="32" r="1.5"/><circle cx="256" cy="32" r="1.5"/><circle cx="280" cy="32" r="1.5"/><circle cx="304" cy="32" r="1.5"/><circle cx="328" cy="32" r="1.5"/><circle cx="352" cy="32" r="1.5"/><circle cx="376" cy="32" r="1.5"/><circle cx="400" cy="32" r="1.5"/><circle cx="424" cy="32" r="1.5"/>
+<circle cx="184" cy="56" r="1.5"/><circle cx="208" cy="56" r="1.5"/><circle cx="232" cy="56" r="1.5"/><circle cx="256" cy="56" r="1.5"/><circle cx="280" cy="56" r="1.5"/><circle cx="304" cy="56" r="1.5"/><circle cx="328" cy="56" r="1.5"/><circle cx="352" cy="56" r="1.5"/><circle cx="376" cy="56" r="1.5"/><circle cx="400" cy="56" r="1.5"/><circle cx="424" cy="56" r="1.5"/>
+<circle cx="184" cy="80" r="1.5"/><circle cx="208" cy="80" r="1.5"/><circle cx="232" cy="80" r="1.5"/><circle cx="256" cy="80" r="1.5"/><circle cx="280" cy="80" r="1.5"/><circle cx="304" cy="80" r="1.5"/><circle cx="328" cy="80" r="1.5"/><circle cx="352" cy="80" r="1.5"/><circle cx="376" cy="80" r="1.5"/><circle cx="400" cy="80" r="1.5"/><circle cx="424" cy="80" r="1.5"/>
+</g>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Vector</h1>
+<p class="tag">Quiet surfaces, lit edges, colourful details.</p>
+</div>
+</div>
+</body>
+</html>
