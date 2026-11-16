@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scene patterns</title>
+<link rel="stylesheet" href="../runtime/vector-video.css">
+<style>
+  /* Scene-specific layout only. */
+  .title-badges { display: flex; gap: 14px; margin-top: 12px; }
+  .chapter-num { font: 500 30px/1 var(--mono); color: var(--accent-text); }
+</style>
+</head>
+<body data-pace="1">
+<main class="stage">
+
+  <!-- 1. Title -->
+  <section class="scene scene--title">
+    <div class="col gap-6">
+      <div class="eyebrow" data-step="0">Scene patterns · <b>reference</b></div>
+      <h1 class="display" data-step="0">How a library lends a book</h1>
+      <p class="lead" data-step="1">A made-up example that shows every scene pattern this skill offers.</p>
+      <div class="title-badges" data-step="2" data-stagger>
+        <span class="badge tone-violet">Data model</span>
+        <span class="badge tone-green">Process</span>
+        <span class="badge tone-orange">Warnings</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Chapter card -->
+  <section class="scene scene--chapter" data-chapter="The records">
+    <div class="col gap-3">
+      <div class="chapter-num" data-step="0" data-chapter-num></div>
+      <h1 class="h1" data-step="0">The records behind a loan</h1>
+      <p class="lead" data-step="1">Four records work together each time a member borrows a book.</p>
+    </div>
+  </section>
+
+  <!-- 3. Key points -->
+  <section class="scene" data-chapter="The records">
+    <div class="head">
+      <h2 class="h2" data-step="0">The short version</h2>
+    </div>
+    <ul class="list tone-indigo">
+      <li data-step="1">A <b>library</b> owns many books.</li>
+      <li data-step="2">A <b>member</b> borrows a book by creating a <b>loan</b>.<span class="sub">A loan links one member to one copy of a book.</span></li>
+      <li data-step="3">The loan ends when the book comes back.</li>
+    </ul>
+  </section>
+
+  <!-- 4. Card grid with icon tiles -->
+  <section class="scene" data-chapter="The records">
+    <div class="head">
+      <h2 class="h2" data-step="0">Four records</h2>
+      <p class="body" data-step="0">Each one has its own colour for the rest of this video.</p>
+    </div>
+    <div class="grid-4" data-step="1" data-stagger="0.12">
+      <div class="card tone-blue"><span class="tile"><i class="ic" data-icon="home"></i></span><div class="h3">Library</div><p>A branch that owns books.</p></div>
+      <div class="card tone-violet"><span class="tile"><i class="ic" data-icon="document"></i></span><div class="h3">Book</div><p>One physical copy on a shelf.</p></div>
+      <div class="card tone-green"><span class="tile"><i class="ic" data-icon="user"></i></span><div class="h3">Member</div><p>A person with a library card.</p></div>
+      <div class="card card--accent tone-amber"><span class="tile"><i class="ic" data-icon="clock"></i></span><div class="h3">Loan</div><p>Who has which book, and until when.</p></div>
+    </div>
+  </section>
+
+  <!-- 5. Relationship diagram: nodes, drawn edges, then focus -->
+  <section class="scene" data-chapter="The records">
+    <div class="head"><h2 class="h2" data-step="0">How they link</h2></div>
+    <svg class="diagram fill" viewBox="0 0 1620 600">
+      <path class="dg-edge" d="M380 300 H 640" marker-end="url(#arrow)" data-step="2" data-anim="draw"/>
+      <path class="dg-edge" d="M980 300 C 1080 300, 1100 140, 1240 140" marker-end="url(#arrow)" data-step="3" data-anim="draw"/>
+      <path class="dg-edge dashed" d="M1240 470 C 1120 470, 1100 320, 980 320" marker-end="url(#arrow)" data-step="4" data-anim="draw"/>
+      <g data-step="2" data-anim="fade" data-delay="0.5"><rect class="dg-label-bg" x="440" y="262" width="140" height="30" rx="6"/><text class="dg-label" x="510" y="284" text-anchor="middle">has many</text></g>
+      <g data-step="3" data-anim="fade" data-delay="0.5"><rect class="dg-label-bg" x="1035" y="190" width="150" height="30" rx="6"/><text class="dg-label" x="1110" y="212" text-anchor="middle">lent through</text></g>
+      <g class="dg-node tone-blue" data-step="1" data-dim="5">
+        <rect class="box" x="60" y="250" width="320" height="100" rx="14"/>
+        <text class="t1" x="92" y="294">Library</text><text class="t2" x="92" y="328">owns books</text>
+      </g>
+      <g class="dg-node tone-violet" data-step="1" data-mark="5">
+        <rect class="box" x="640" y="250" width="340" height="100" rx="14"/><rect class="ring" x="632" y="242" width="356" height="116" rx="20"/>
+        <text class="t1" x="672" y="294">Book</text><text class="t2 mono" x="672" y="328">library_id</text>
+      </g>
+      <g class="dg-node tone-amber" data-step="3" data-dim="5">
+        <rect class="box" x="1240" y="90" width="320" height="100" rx="14"/>
+        <text class="t1" x="1272" y="134">Loan</text><text class="t2 mono" x="1272" y="168">book_id, member_id</text>
+      </g>
+      <g class="dg-node tone-green" data-step="4" data-dim="5">
+        <rect class="box" x="1240" y="420" width="320" height="100" rx="14"/>
+        <text class="t1" x="1272" y="464">Member</text><text class="t2" x="1272" y="498">borrows books</text>
+      </g>
+    </svg>
+    <p class="body wide" data-step="5">A <b>book</b> stores its library's ID, so each copy belongs to exactly one library.</p>
+  </section>
+
+  <!-- 6. Process flow with marks -->
+  <section class="scene" data-chapter="Lending">
+    <div class="head"><h2 class="h2" data-step="0">What happens at the desk</h2></div>
+    <div class="flow" data-step="1" data-stagger="0.12">
+      <div class="node" data-mark="2" data-unmark="3"><span class="tile tile--sm tone-green"><i class="ic" data-icon="scan"></i></span><div class="h4">Scan card</div><p>Finds the member.</p></div>
+      <div class="link">→</div>
+      <div class="node" data-mark="3" data-unmark="4"><span class="tile tile--sm tone-violet"><i class="ic" data-icon="document"></i></span><div class="h4">Scan book</div><p>Finds the copy.</p></div>
+      <div class="link">→</div>
+      <div class="node" data-mark="4"><span class="tile tile--sm tone-amber"><i class="ic" data-icon="clock"></i></span><div class="h4">Create loan</div><p>Due in 21 days.</p></div>
+    </div>
+    <div class="captions">
+      <div class="card card--tight" data-step="2" data-exit="3"><span class="n">1</span><p class="primary">The desk scans the member's card and looks up the member.</p></div>
+      <div class="card card--tight" data-step="3" data-exit="4"><span class="n">2</span><p class="primary">It scans the barcode on the book to find that exact copy.</p></div>
+      <div class="card card--tight" data-step="4"><span class="n">3</span><p class="primary">It saves a loan with a due date 21 days from today.</p></div>
+    </div>
+  </section>
+
+  <!-- 7. Table with row highlights -->
+  <section class="scene" data-chapter="Lending">
+    <div class="head"><h2 class="h2" data-step="0">Loan rules by member type</h2></div>
+    <table class="table">
+      <thead data-step="0"><tr><th>Member type</th><th>Books at once</th><th>Loan length</th><th>Renewals</th></tr></thead>
+      <tbody data-step="1" data-stagger="0.1">
+        <tr><td>Adult</td><td>10</td><td>21 days</td><td>2</td></tr>
+        <tr data-mark="2"><td>Child</td><td>5</td><td>21 days</td><td>2</td></tr>
+        <tr><td>Visitor</td><td>2</td><td>7 days</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <div class="callout callout--info" data-step="2"><i class="ic" data-icon="info"></i><p><span class="title">Children can hold five books</span>Half the adult limit, with the same loan length.</p></div>
+  </section>
+
+  <!-- 8. Code with line highlights -->
+  <section class="scene" data-chapter="Lending">
+    <div class="split split--even">
+      <div class="col gap-6">
+        <h2 class="h2" data-step="0">The due date in code</h2>
+        <p class="body" data-step="1">The loan length comes from the member's type.</p>
+        <p class="body" data-step="2">Then the code adds it to today's date.</p>
+        <div class="path" data-step="1">app/models/<b>loan.rb</b></div>
+      </div>
+      <div data-step="0" data-anim="fade">
+        <pre class="code"><span class="ln" data-n="1"><span class="k">def</span> <span class="f">due_date</span></span><span class="ln" data-n="2" data-mark="1" data-unmark="2">  days = <span class="f">member</span>.<span class="f">loan_days</span></span><span class="ln" data-n="3" data-mark="2">  <span class="f">Date</span>.<span class="f">today</span> + days</span><span class="ln" data-n="4"><span class="k">end</span></span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Stats -->
+  <section class="scene scene--middle" data-chapter="Lending">
+    <div class="head"><h2 class="h2" data-step="0">One branch, one year</h2></div>
+    <div class="grid-3">
+      <div class="stat" data-step="1"><div class="num" data-step="1" data-anim="count">48,210</div><div class="what">loans created</div></div>
+      <div class="stat" data-step="2"><div class="num" data-step="2" data-anim="count">3.4<small>%</small></div><div class="what">returned late</div></div>
+      <div class="stat" data-step="3"><div class="num" data-step="3" data-anim="count">21</div><div class="what">days, the standard loan</div></div>
+    </div>
+  </section>
+
+  <!-- 10. Trace across lanes with a caption per step -->
+  <section class="scene" data-chapter="Returns">
+    <div class="head"><h2 class="h2" data-step="0">A return, step by step</h2></div>
+    <svg class="diagram" viewBox="0 0 1620 420" data-step="0" data-anim="fade">
+      <g class="tone-green"><text class="dg-label" x="0" y="72">Desk</text><circle class="dg-dot" cx="190" cy="65" r="7"/></g>
+      <g class="tone-violet"><text class="dg-label" x="0" y="202">Catalogue</text><circle class="dg-dot" cx="190" cy="195" r="7"/></g>
+      <g class="tone-amber"><text class="dg-label" x="0" y="332">Loans</text><circle class="dg-dot" cx="190" cy="325" r="7"/></g>
+      <path d="M230 130 H 1620 M230 260 H 1620" stroke="var(--border-subtle)" stroke-width="1.5"/>
+      <path class="dg-edge hot" d="M420 65 C 560 65, 560 195, 700 195" data-step="2" data-anim="draw"/>
+      <path class="dg-edge hot" d="M700 195 C 840 195, 840 325, 980 325" data-step="3" data-anim="draw"/>
+      <path class="dg-edge hot" d="M980 325 C 1120 325, 1120 65, 1260 65" data-step="4" data-anim="draw"/>
+      <g class="tone-green" data-step="1" data-anim="pop"><circle cx="420" cy="65" r="22" fill="var(--bg-base)"/><circle cx="420" cy="65" r="22" fill="var(--soft)" stroke="var(--hue)" stroke-width="2.5"/><text x="420" y="74" text-anchor="middle" style="font: 600 24px var(--mono); fill: var(--text-primary)">1</text></g>
+      <g class="tone-violet" data-step="2" data-anim="pop" data-delay="0.6"><circle cx="700" cy="195" r="22" fill="var(--bg-base)"/><circle cx="700" cy="195" r="22" fill="var(--soft)" stroke="var(--hue)" stroke-width="2.5"/><text x="700" y="204" text-anchor="middle" style="font: 600 24px var(--mono); fill: var(--text-primary)">2</text></g>
+      <g class="tone-amber" data-step="3" data-anim="pop" data-delay="0.6"><circle cx="980" cy="325" r="22" fill="var(--bg-base)"/><circle cx="980" cy="325" r="22" fill="var(--soft)" stroke="var(--hue)" stroke-width="2.5"/><text x="980" y="334" text-anchor="middle" style="font: 600 24px var(--mono); fill: var(--text-primary)">3</text></g>
+      <g class="tone-green" data-step="4" data-anim="pop" data-delay="0.6"><circle cx="1260" cy="65" r="22" fill="var(--bg-base)"/><circle cx="1260" cy="65" r="22" fill="var(--soft)" stroke="var(--hue)" stroke-width="2.5"/><text x="1260" y="74" text-anchor="middle" style="font: 600 24px var(--mono); fill: var(--text-primary)">4</text></g>
+    </svg>
+    <div class="captions">
+      <div class="card card--tight" data-step="1" data-exit="2"><span class="n">1</span><p class="primary">The desk scans the returned book.</p></div>
+      <div class="card card--tight" data-step="2" data-exit="3"><span class="n">2</span><p class="primary">The catalogue finds the copy and its open loan.</p></div>
+      <div class="card card--tight" data-step="3" data-exit="4"><span class="n">3</span><p class="primary">The loan gets a return date and closes.</p></div>
+      <div class="card card--tight" data-step="4"><span class="n">4</span><p class="primary">The desk shows "Returned" and any late fee.</p></div>
+    </div>
+  </section>
+
+  <!-- 11. Warnings and comparison -->
+  <section class="scene" data-chapter="Returns">
+    <div class="head"><h2 class="h2" data-step="0">Things to watch</h2></div>
+    <div class="col gap-3">
+      <div class="callout callout--warn" data-step="1"><i class="ic" data-icon="alert"></i><p><span class="title">Late fees use the branch's time zone</span>A book returned at 11 p.m. in another time zone can count as late.</p></div>
+      <div class="callout callout--bug" data-step="2"><i class="ic" data-icon="bug"></i><p><span class="title">Known bug: renewals ignore holds</span>A member can renew a book that someone else has reserved.</p></div>
+    </div>
+    <div class="versus" data-step="3" data-stagger>
+      <div class="card card--tight"><div class="yes"><i class="ic" data-icon="check"></i><span>Check holds before you renew</span></div></div>
+      <div class="card card--tight"><div class="no"><i class="ic" data-icon="x"></i><span>Trust the renew button alone</span></div></div>
+    </div>
+  </section>
+
+  <!-- 12. Date timeline (built by the runtime from data-timeline) -->
+  <section class="scene" data-chapter="Returns">
+    <div class="head"><h2 class="h2" data-step="0">A 21-day loan on the calendar</h2></div>
+    <div class="timeline" data-timeline='{
+      "from": "2026-03-01", "to": "2026-04-30", "ticks": "week",
+      "bars": [
+        { "label": "Loan", "sub": "2 Mar to 22 Mar", "from": "2026-03-02", "to": "2026-03-22", "tone": "amber", "step": 1 },
+        { "label": "Renewal", "sub": "23 Mar to 12 Apr", "from": "2026-03-23", "to": "2026-04-12", "tone": "green", "step": 3 }
+      ],
+      "markers": [
+        { "label": "Borrowed", "date": "2026-03-02", "step": 1, "exit": 2 },
+        { "label": "Due", "date": "2026-03-22", "step": 2, "exit": 3 },
+        { "label": "New due date", "date": "2026-04-12", "step": 3 }
+      ]
+    }'></div>
+    <div class="captions">
+      <p class="body wide" data-step="1" data-exit="2">The loan starts on the day the member borrows the book.</p>
+      <p class="body wide" data-step="2" data-exit="3">It is due 21 days later, counting the first day.</p>
+      <p class="body wide" data-step="3">A renewal adds another 21 days from the old due date.</p>
+    </div>
+  </section>
+
+  <!-- 12b. Equal-cell strip, for when each cell is one unit (a day, a month) -->
+  <section class="scene" data-chapter="Returns">
+    <div class="head"><h2 class="h2" data-step="0">Late from day 22</h2></div>
+    <div class="col gap-2">
+      <div class="strip tone-amber" data-step="1">
+        <div class="cell on">15</div><div class="cell on">16</div><div class="cell on">17</div><div class="cell on">18</div><div class="cell on">19</div><div class="cell on">20</div><div class="cell on" data-mark="2">21</div>
+        <div class="cell">22</div><div class="cell">23</div><div class="cell">24</div>
+      </div>
+      <div class="axis micro" data-step="1" data-noread><span>Day 15</span><span></span><span></span><span></span><span></span><span></span><span>Due</span><span>Late</span><span></span><span></span></div>
+    </div>
+    <p class="body" data-step="2">The book is due back on day 21. From day 22 it is late.</p>
+  </section>
+
+  <!-- 13. Camera: zoom into parts of a wide diagram -->
+  <section class="scene" data-chapter="Returns">
+    <div class="head"><h2 class="h2" data-step="0">Zooming into a busy diagram</h2></div>
+    <div class="fill" style="overflow:hidden; border-radius: var(--r-lg)">
+      <div class="cam" data-cam='{"2":[1.7,0.22,0.5],"3":[1.7,0.78,0.5],"4":[1,0.5,0.5]}' style="height:100%">
+        <svg class="diagram" viewBox="0 0 1620 560" data-step="1" data-anim="fade" style="height:100%">
+          <g class="dg-node tone-green"><rect class="box" x="40" y="220" width="300" height="100" rx="14"/><text class="t1" x="70" y="264">Desk</text><text class="t2" x="70" y="298">scans the book</text></g>
+          <path class="dg-edge" d="M340 270 H 660" marker-end="url(#arrow)"/>
+          <g class="dg-node tone-violet"><rect class="box" x="660" y="220" width="300" height="100" rx="14"/><text class="t1" x="690" y="264">Catalogue</text><text class="t2" x="690" y="298">finds the loan</text></g>
+          <path class="dg-edge" d="M960 270 H 1280" marker-end="url(#arrow)"/>
+          <g class="dg-node tone-amber"><rect class="box" x="1280" y="220" width="300" height="100" rx="14"/><text class="t1" x="1310" y="264">Loans</text><text class="t2" x="1310" y="298">closes it</text></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Recap -->
+  <section class="scene" data-chapter="Recap">
+    <div class="head"><h2 class="h2" data-step="0">What to remember</h2></div>
+    <ol class="steps tone-indigo">
+      <li data-step="1">A loan links one member to one copy of a book.</li>
+      <li data-step="2">Member type sets how many books and for how long.</li>
+      <li data-step="3">Renewals don't check holds yet.</li>
+    </ol>
+  </section>
+
+</main>
+<script src="../runtime/icons.js"></script>
+<script src="../runtime/player.js"></script>
+</body>
+</html>
