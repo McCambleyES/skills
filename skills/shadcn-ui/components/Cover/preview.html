@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cover — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:none} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<style>
+body{padding:0}
+.shell{display:grid;grid-template-columns:15rem 1fr;min-height:100vh}
+.side{background:var(--sidebar);color:var(--sidebar-foreground);border-right:1px solid var(--sidebar-border);padding:8px;display:flex;flex-direction:column;gap:4px}
+.brand{display:flex;align-items:center;gap:8px;padding:8px;font-weight:600}
+.logo{display:grid;place-items:center;width:2rem;height:2rem;border-radius:var(--radius-lg);background:var(--sidebar-primary);color:var(--sidebar-primary-foreground)}
+.nav{display:flex;align-items:center;gap:8px;height:2rem;padding:0 8px;border-radius:var(--radius-md);color:inherit;text-decoration:none}
+.nav:hover,.nav[aria-current]{background:var(--sidebar-accent);color:var(--sidebar-accent-foreground)}
+.nav[aria-current]{font-weight:500}
+.grouplabel{padding:16px 8px 4px;font-size:.75rem;font-weight:500;color:color-mix(in oklch,var(--sidebar-foreground) 70%,transparent)}
+.main{display:flex;flex-direction:column;min-width:0}
+.top{display:flex;align-items:center;gap:8px;height:3.5rem;padding:0 24px;border-bottom:1px solid var(--border)}
+.content{padding:24px;display:grid;gap:16px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:16px}
+.big{font-size:1.5rem;line-height:2rem;font-weight:600;font-variant-numeric:tabular-nums}
+.bars{display:flex;align-items:flex-end;gap:6px;height:10rem}
+.bars span{flex:1;border-radius:4px 4px 0 0;background:var(--chart-1)}
+.bars span:nth-child(odd){background:var(--chart-2)}
+@media (max-width:760px){.shell{grid-template-columns:1fr}.side{display:none}}
+</style>
+<div class="shell">
+<aside class="side" aria-label="Sidebar">
+  <div class="brand"><span class="logo"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /> </svg></span>Acme Inc.</div>
+  <a class="nav" href="#" aria-current="page"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> </svg>Dashboard</a>
+  <a class="nav" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> </svg>Bookings</a>
+  <a class="nav" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /> </svg>Messages</a>
+  <div class="grouplabel">Settings</div>
+  <a class="nav" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /> <circle cx="12" cy="7" r="4" /> </svg>Team</a>
+  <a class="nav" href="#"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /> <circle cx="12" cy="12" r="3" /> </svg>General</a>
+</aside>
+<div class="main">
+  <header class="top">
+    <span style="font-weight:500">Dashboard</span>
+    <span style="flex:1"></span>
+    <div style="position:relative;width:16rem;max-width:40vw"><span style="position:absolute;left:10px;top:10px;color:var(--muted-foreground)"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /> </svg></span><input class="sc-input" style="padding-left:2rem" placeholder="Search…" aria-label="Search"></div>
+    <button class="sc-btn sc-btn--ghost sc-btn--icon" aria-label="Notifications"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M10.268 21a2 2 0 0 0 3.464 0" /> <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" /> </svg></button>
+    <span class="sc-avatar">JD</span>
+  </header>
+  <main class="content">
+    <div class="stats">
+      <div class="sc-card"><div class="sc-card-header"><p class="sc-card-description">Total revenue</p><div class="big">$45,231.89</div><div class="sc-card-action"><span class="sc-badge sc-badge--outline">+20.1%</span></div></div></div>
+      <div class="sc-card"><div class="sc-card-header"><p class="sc-card-description">New customers</p><div class="big">1,234</div><div class="sc-card-action"><span class="sc-badge sc-badge--outline">−4.3%</span></div></div></div>
+      <div class="sc-card"><div class="sc-card-header"><p class="sc-card-description">Active accounts</p><div class="big">45,678</div><div class="sc-card-action"><span class="sc-badge sc-badge--outline">+12.5%</span></div></div></div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-card-header"><h3 class="sc-card-title">Visitors</h3><p class="sc-card-description">Desktop and mobile, last 12 weeks</p>
+        <div class="sc-card-action"><div class="sc-tabs-list" role="tablist" aria-label="Range"><button class="sc-tabs-trigger" role="tab" aria-selected="true">12 weeks</button><button class="sc-tabs-trigger" role="tab" aria-selected="false" tabindex="-1">30 days</button></div></div></div>
+      <div class="sc-card-content"><div class="bars" role="img" aria-label="Bar chart of weekly visitors">
+        <span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span><span style="height:70%"></span><span style="height:62%"></span><span style="height:80%"></span><span style="height:58%"></span><span style="height:74%"></span><span style="height:90%"></span><span style="height:66%"></span><span style="height:84%"></span><span style="height:96%"></span>
+      </div></div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-card-header"><h3 class="sc-card-title">Recent orders</h3><div class="sc-card-action"><button class="sc-btn sc-btn--outline sc-btn--sm"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12h14" /> <path d="M12 5v14" /> </svg>Add order</button></div></div>
+      <div class="sc-card-content"><div class="sc-table-wrap"><table class="sc-table">
+        <thead><tr><th>Customer</th><th>Status</th><th class="sc-num">Amount</th><th><span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Actions</span></th></tr></thead>
+        <tbody>
+          <tr><td><div style="font-weight:500">Olivia Martin</div><div class="sc-muted">olivia@example.com</div></td><td><span class="sc-badge sc-badge--secondary"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M20 6 9 17l-5-5" /> </svg>Paid</span></td><td class="sc-num">$1,999.00</td><td style="text-align:right"><button class="sc-btn sc-btn--ghost sc-btn--icon sc-btn--sm" aria-label="More"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="1" /> <circle cx="19" cy="12" r="1" /> <circle cx="5" cy="12" r="1" /> </svg></button></td></tr>
+          <tr><td><div style="font-weight:500">Jackson Lee</div><div class="sc-muted">jackson@example.com</div></td><td><span class="sc-badge sc-badge--outline">Pending</span></td><td class="sc-num">$39.00</td><td style="text-align:right"><button class="sc-btn sc-btn--ghost sc-btn--icon sc-btn--sm" aria-label="More"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="1" /> <circle cx="19" cy="12" r="1" /> <circle cx="5" cy="12" r="1" /> </svg></button></td></tr>
+          <tr><td><div style="font-weight:500">Isabella Nguyen</div><div class="sc-muted">isabella@example.com</div></td><td><span class="sc-badge sc-badge--destructive">Refunded</span></td><td class="sc-num">$299.00</td><td style="text-align:right"><button class="sc-btn sc-btn--ghost sc-btn--icon sc-btn--sm" aria-label="More"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="1" /> <circle cx="19" cy="12" r="1" /> <circle cx="5" cy="12" r="1" /> </svg></button></td></tr>
+        </tbody></table></div></div>
+    </div>
+  </main>
+</div>
+</div>
+</body></html>

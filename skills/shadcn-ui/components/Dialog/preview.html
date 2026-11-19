@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dialog — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:720px} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<button class="sc-btn sc-btn--outline" onclick="document.getElementById('d').showModal()">Edit profile</button>
+<dialog class="sc-dialog" id="d" aria-labelledby="dt" aria-describedby="dd">
+  <form method="dialog" style="display:contents">
+  <div class="sc-dialog-header"><h2 class="sc-dialog-title" id="dt">Edit profile</h2><p class="sc-dialog-description" id="dd">Make changes to your profile here. Click save when you're done.</p></div>
+  <div class="sc-field"><label class="sc-label" for="dn">Name</label><input class="sc-input" id="dn" value="Pedro Duarte"></div>
+  <div class="sc-dialog-footer"><button class="sc-btn sc-btn--outline" value="cancel">Cancel</button><button class="sc-btn" value="save">Save changes</button></div>
+  <button class="sc-btn sc-btn--ghost sc-btn--icon sc-btn--sm" value="close" aria-label="Close" style="position:absolute;top:12px;right:12px;opacity:.7"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button>
+  </form>
+</dialog>
+<script>document.getElementById('d').showModal()</script>
+</body></html>

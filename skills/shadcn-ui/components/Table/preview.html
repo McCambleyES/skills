@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Table — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:720px} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<div class="sc-table-wrap">
+<table class="sc-table">
+<caption>A list of your recent invoices.</caption>
+<thead><tr><th>Invoice</th><th>Status</th><th>Method</th><th class="sc-num">Amount</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:500">INV001</td><td><span class="sc-badge sc-badge--outline">Paid</span></td><td>Credit card</td><td class="sc-num">$250.00</td></tr>
+<tr aria-selected="true"><td style="font-weight:500">INV002</td><td><span class="sc-badge sc-badge--secondary">Pending</span></td><td>PayPal</td><td class="sc-num">$150.00</td></tr>
+<tr><td style="font-weight:500">INV003</td><td><span class="sc-badge sc-badge--destructive">Failed</span></td><td>Bank transfer</td><td class="sc-num">$350.00</td></tr>
+</tbody>
+<tfoot><tr><td colspan="3">Total</td><td class="sc-num">$750.00</td></tr></tfoot>
+</table>
+</div>
+</body></html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tabs — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:720px} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<div class="stack" style="max-width:24rem">
+<div>
+<div class="sc-tabs-list" role="tablist">
+  <button class="sc-tabs-trigger" role="tab" aria-selected="true" aria-controls="t1" id="b1">Account</button>
+  <button class="sc-tabs-trigger" role="tab" aria-selected="false" aria-controls="t2" id="b2" tabindex="-1">Password</button>
+</div>
+<div class="sc-tabs-panel" role="tabpanel" id="t1" aria-labelledby="b1"><div class="sc-card"><div class="sc-card-header"><h3 class="sc-card-title">Account</h3><p class="sc-card-description">Make changes to your account here.</p></div><div class="sc-card-content"><div class="sc-field"><label class="sc-label" for="nm">Name</label><input class="sc-input" id="nm" value="Pedro Duarte"></div></div><div class="sc-card-footer"><button class="sc-btn">Save changes</button></div></div></div>
+<div class="sc-tabs-panel" role="tabpanel" id="t2" aria-labelledby="b2" hidden><div class="sc-card"><div class="sc-card-header"><h3 class="sc-card-title">Password</h3><p class="sc-card-description">Change your password here.</p></div><div class="sc-card-content"><div class="sc-field"><label class="sc-label" for="pw">Current password</label><input class="sc-input" id="pw" type="password"></div></div><div class="sc-card-footer"><button class="sc-btn">Save password</button></div></div></div>
+</div>
+</div>
+<script>document.querySelectorAll('[role=tablist]').forEach(function(list){
+  var tabs=[].slice.call(list.querySelectorAll('[role=tab]'));
+  function pick(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});t.focus();}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){pick(t)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();pick(tabs[(i+d+tabs.length)%tabs.length]);}});});
+});</script>
+</body></html>

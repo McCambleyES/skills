@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Form — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:720px} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<form class="stack" style="max-width:24rem" onsubmit="return false">
+<div class="sc-field"><label class="sc-label" for="n">Name</label><input class="sc-input" id="n" placeholder="Jane Doe"><p class="sc-help">Shown on your profile.</p></div>
+<div class="sc-field"><label class="sc-label" for="u">Username</label><input class="sc-input" id="u" value="ja" aria-invalid="true" aria-describedby="u-err"><p class="sc-error" id="u-err">Username must be at least 3 characters.</p></div>
+<div class="sc-field"><label class="sc-label" for="r">Role</label><select class="sc-select" id="r"><option>Viewer</option><option>Editor</option><option>Admin</option></select></div>
+<div class="sc-field"><label class="sc-label" for="b">Bio</label><textarea class="sc-textarea" id="b" placeholder="Tell us a little about yourself"></textarea></div>
+<label class="sc-label"><input type="checkbox" class="sc-checkbox" checked> Accept terms and conditions</label>
+<label class="sc-label"><input type="checkbox" role="switch" class="sc-switch" checked> Airplane mode</label>
+<label class="sc-label"><input type="checkbox" role="switch" class="sc-switch"> Marketing emails</label>
+<div class="row"><button class="sc-btn">Submit</button><button class="sc-btn sc-btn--outline" type="reset">Cancel</button></div>
+</form>
+</body></html>

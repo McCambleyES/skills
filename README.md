@@ -10,6 +10,7 @@ Claude Code skills I use day to day. Each folder under `skills/` is one skill.
 | [`go-crazy`](skills/go-crazy/SKILL.md) | Work one person's tasks on a build board with parallel subagents, rechecking on a timer. |
 | [`iso-plain-language`](skills/iso-plain-language/SKILL.md) | Write human-facing text in plain language that follows ISO 24495-1:2023. |
 | [`project-update`](skills/project-update/SKILL.md) | Post a short status paragraph about a project on a repeating timer. |
+| [`shadcn-ui`](skills/shadcn-ui/SKILL.md) | shadcn/ui as a design system in plain CSS, with neutral tokens, 1px borders, faint shadows, Geist type and Lucide icons. |
 | [`update-skills-repo`](skills/update-skills-repo/SKILL.md) | Publish your own skills to a public GitHub skills repo, with proprietary information removed and this README kept current. |
 | [`vector`](skills/vector/SKILL.md) | Vector (also called Linearesque), a quiet dark-first design system with lit gradient borders, faint glows and two-tone icons. |
 

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Card — preview</title>
+<link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>body{margin:0;padding:24px 16px} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center} .stack{display:grid;gap:24px;max-width:720px} .theme{position:fixed;bottom:12px;right:12px}</style></head>
+<body class="sc">
+<button class="sc-btn sc-btn--outline sc-btn--sm theme" onclick="var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark'">Toggle theme</button>
+<div class="stack" style="max-width:24rem">
+<div class="sc-card">
+  <div class="sc-card-header">
+    <h3 class="sc-card-title">Login to your account</h3>
+    <p class="sc-card-description">Enter your email below to login to your account</p>
+    <div class="sc-card-action"><a class="sc-btn sc-btn--link" href="#">Sign up</a></div>
+  </div>
+  <div class="sc-card-content" style="display:grid;gap:24px">
+    <div class="sc-field"><label class="sc-label" for="e">Email</label><input class="sc-input" id="e" type="email" placeholder="m@example.com"></div>
+    <div class="sc-field"><label class="sc-label" for="p">Password</label><input class="sc-input" id="p" type="password"></div>
+  </div>
+  <div class="sc-card-footer" style="flex-direction:column">
+    <button class="sc-btn" style="width:100%">Login</button>
+    <button class="sc-btn sc-btn--outline" style="width:100%">Login with Google</button>
+  </div>
+</div>
+<div class="sc-card">
+  <div class="sc-card-header"><p class="sc-card-description">Total revenue</p><h3 class="sc-card-title" style="font-size:1.875rem;line-height:2.25rem;font-variant-numeric:tabular-nums">$1,250.00</h3>
+  <div class="sc-card-action"><span class="sc-badge sc-badge--outline">+12.5%</span></div></div>
+  <div class="sc-card-footer"><span class="sc-muted">Visitors for the last 6 months</span></div>
+</div>
+</div>
+</body></html>
