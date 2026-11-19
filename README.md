@@ -43,4 +43,4 @@ Run `git pull` in the clone to update.
 - **Build boards.** Each person whose agent writes to a board needs Contributor or Editor access to that board's artifact.
 - **`go-crazy` and `project-update`** run only when you type `/go-crazy` or `/project-update`. Claude won't start them on its own.
 - **`iso-plain-language` is used by other skills.** `explain-with-slides`, `explainer-video`, `project-update` and `update-skills-repo` load it, so install it with them.
-- **`update-skills-repo` publishes to your own account.** It needs the `gh` CLI signed in and Python 3. It keeps its clone at `~/dev/skills` and pushes to `github.com/<your account>/skills`, creating that public repo on the first run. It never publishes skills you installed from other people's repos.
+- **`update-skills-repo` publishes to your own account.** It needs the `gh` CLI signed in and Python 3. It keeps its clone at `~/dev/skills` and pushes to `github.com/<your account>/skills`, creating that public repo on the first run. It never publishes skills you installed from other people's repos. To keep one of your own skills private, put an empty file named `.private` in its folder.

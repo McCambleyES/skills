@@ -35,7 +35,7 @@ python3 SKILL_DIR/scripts/inventory.py ~/dev/skills
 
 It labels each skill `new`, `changed`, `same`, `gone`, `third-party`, `synced` or `skip`.
 
-- **third-party** (installed from someone else's repo, per `~/.agents/.skill-lock.json`) and **synced** (Anthropic's skills from claude.ai) are never published. If the user asks for one, point them to its source repo for the README instead.
+- **third-party** (installed from someone else's repo, per `~/.agents/.skill-lock.json`), **synced** (Anthropic's skills from claude.ai) and **skip** (no `SKILL.md`, or a `.private` file in the folder) are never published. If the user asks for one, point them to its source repo for the README instead.
 - **new** and **gone** need the user's say. Ask in one AskUserQuestion call: which new skills to publish, and whether each gone skill should be removed from the repo. A skill that exists only to work on the user's company code (its steps name their repos or services) gets its own option: publish scrubbed, or keep private.
 - **changed** skills are published without asking: the user published them before.
 

@@ -10,6 +10,7 @@ Prints one line per skill: STATUS  NAME  [detail]
   gone         in the repo, no longer in ~/.claude/skills
   third-party  installed by the skills CLI (~/.agents/.skill-lock.json); never publish
   synced       claude.ai synced skills folder; never publish
+  skip         no SKILL.md, or a .private file marks it private; never publish
 """
 import filecmp
 import json
@@ -57,6 +58,8 @@ for name in local:
         print(f"third-party  {name}  from {locked[name]}")
     elif not os.path.exists(os.path.join(path, "SKILL.md")):
         print(f"skip         {name}  no SKILL.md")
+    elif os.path.exists(os.path.join(path, ".private")):
+        print(f"skip         {name}  private (.private file)")
     elif name not in published:
         print(f"new          {name}")
     else:
