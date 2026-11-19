@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pebble</title><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css">
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--bg-base); color:var(--text-primary); font-family:var(--font-sans); overflow:hidden; -webkit-font-smoothing:antialiased; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:464px; width:496px; height:288px; }
+  .art svg { display:block; width:496px; height:288px; overflow:visible; }
+  .card { fill:var(--surface); filter:drop-shadow(0 1px 2px rgba(0,0,0,.06)) drop-shadow(0 6px 16px rgba(0,0,0,.06)); }
+  .accent { fill:var(--accent); }
+  .soft-accent { fill:var(--accent-soft); }
+  .soft-success { fill:var(--success-soft); }
+  .soft-warning { fill:var(--warning-soft); }
+  .soft-danger { fill:var(--danger-soft); }
+  .ink-success { fill:var(--success-soft-text); }
+  .ink-warning { fill:var(--warning-soft-text); }
+  .track { fill:var(--default); }
+  .seg { fill:var(--segment); }
+  .bar { fill:var(--default); }
+  .on { fill:var(--on-accent); }
+  .words { position:absolute; left:var(--space-8); bottom:var(--space-8); max-width:420px; }
+  .name { margin:0; font-size:120px; line-height:.92; font-weight:700; letter-spacing:-0.05em; }
+  .tag { margin:var(--space-3) 0 0 6px; font-size:14px; line-height:20px; color:var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 496 288" width="496" height="288">
+<!--
+  idea        pebbles: a lifted white card (shadow, no border) holding a pill button, a tab track and two soft chips,
+              ringed by soft-tinted rounded stones; the solid accent appears once, on the card's button
+  scales      card radius-xl; buttons, chips and stones are pills or circles; gutters space-4 multiples
+-->
+<circle class="soft-accent" cx="430" cy="40" r="72"/>
+<circle class="soft-warning" cx="40" cy="250" r="44"/>
+<rect class="soft-success" x="384" y="196" width="128" height="64" rx="32"/>
+<g>
+<rect class="card" x="96" y="48" width="288" height="192" rx="24"/>
+<rect class="track" x="120" y="72" width="168" height="32" rx="16"/>
+<rect class="seg" x="123" y="75" width="78" height="26" rx="13" style="filter:drop-shadow(0 1px 1px rgba(0,0,0,.08))"/>
+<rect class="bar" x="120" y="124" width="192" height="10" rx="5"/>
+<rect class="bar" x="120" y="144" width="136" height="10" rx="5"/>
+<rect class="soft-success" x="120" y="172" width="56" height="20" rx="10"/>
+<circle class="ink-success" cx="132" cy="182" r="3"/>
+<rect class="soft-warning" x="184" y="172" width="64" height="20" rx="10"/>
+<circle class="ink-warning" cx="196" cy="182" r="3"/>
+<rect class="accent" x="264" y="192" width="96" height="32" rx="16"/>
+<rect class="on" x="284" y="206" width="56" height="4" rx="2"/>
+</g>
+<circle class="soft-danger" cx="452" cy="150" r="16"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Pebble</h1>
+<p class="tag">Soft surfaces, round edges, a press you can feel.</p>
+</div>
+</div>
+</body>
+</html>

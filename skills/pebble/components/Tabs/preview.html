@@ -1,0 +1,10 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Tabs — preview</title><link rel="stylesheet" href="../../tokens.css"><link rel="stylesheet" href="../bundle.css"><style>body{margin:0;padding:24px;}</style></head>
+<body class="pb">
+<div class="pb-tabs" role="tablist" style="margin-bottom:16px">
+<button class="pb-tabs__tab" role="tab" aria-selected="true">Today</button>
+<button class="pb-tabs__tab" role="tab" aria-selected="false">This week</button>
+<button class="pb-tabs__tab" role="tab" aria-selected="false">This month</button>
+</div>
+<script>document.querySelectorAll('.pb-tabs').forEach(t=>t.addEventListener('click',e=>{const b=e.target.closest('.pb-tabs__tab');if(!b)return;t.querySelectorAll('.pb-tabs__tab').forEach(x=>x.setAttribute('aria-selected',x===b));}));</script>
+</body></html>

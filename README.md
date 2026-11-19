@@ -9,6 +9,7 @@ Claude Code skills I use day to day. Each folder under `skills/` is one skill.
 | [`explainer-video`](skills/explainer-video/SKILL.md) | Turn an explanatory document into a silent, animated explainer video (MP4). |
 | [`go-crazy`](skills/go-crazy/SKILL.md) | Work one person's tasks on a build board with parallel subagents, rechecking on a timer. |
 | [`iso-plain-language`](skills/iso-plain-language/SKILL.md) | Write human-facing text in plain language that follows ISO 24495-1:2023. |
+| [`pebble`](skills/pebble/SKILL.md) | Pebble (also called Heroesque), a soft light-first design system after HeroUI, with borderless shadow-lifted surfaces, large radii, pill buttons that press in and tinted status colours. |
 | [`project-update`](skills/project-update/SKILL.md) | Post a short status paragraph about a project on a repeating timer. |
 | [`shadcn-ui`](skills/shadcn-ui/SKILL.md) | shadcn/ui as a design system in plain CSS, with neutral tokens, 1px borders, faint shadows, Geist type and Lucide icons. |
 | [`update-skills-repo`](skills/update-skills-repo/SKILL.md) | Publish your own skills to a public GitHub skills repo, with proprietary information removed and this README kept current. |
@@ -37,6 +38,7 @@ Run `git pull` in the clone to update.
 
 - **claude.ai account.** `build-board`, `go-crazy`, `project-update` and `explain-with-slides` create or read claude.ai artifacts, so Claude Code must be signed in with a claude.ai account that has artifacts enabled.
 - **`vector` is the design system behind three skills.** `build-board`, `explain-with-slides` and `explainer-video` carry their own copies of its tokens, so they work without it. Install it to style other work in Vector, or to change Vector: its `SKILL.md` says how to pass a change on to the other three.
+- **Changing a design system needs Python 3.** `vector`, `pebble` and `shadcn-ui` build their `tokens.css` from `tokens.json` with a Python script. Using them as they are needs nothing.
 - **`explainer-video` setup.** Needs Node and Chrome. Run `bash ~/.claude/skills/explainer-video/scripts/setup.sh` once.
 - **Build boards.** Each person whose agent writes to a board needs Contributor or Editor access to that board's artifact.
 - **`go-crazy` and `project-update`** run only when you type `/go-crazy` or `/project-update`. Claude won't start them on its own.
